@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSO Login</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <button onclick="redirectToSSO()">Sign in with Google</button>
+        <button onclick="redirectTohomepage()">Sign in  </button>
+    </div>
+
+    <script>
+        // Function to redirect to Google SSO
+        function redirectToSSO() {
+            // Replace with your Google OAuth URL and client ID
+            const oauthUrl = 'https://accounts.google.com/o/oauth2/auth';
+            const clientId = '453804486903-7s8c1ilns49jbddqgg15d8cmq9vf2n0k.apps.googleusercontent.com';
+            const redirectUri = 'https://creative-chebakia-64e56b.netlify.app'; // Update with your callback URL
+
+            const queryParams = `?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=email profile&state=12345`;
+
+            // Redirect the user to Google's login page
+            window.location.href = oauthUrl + queryParams;
+        }
+        function redirectTohomepage(){
+            window.location.href="http://127.0.0.1:5500/sticky/porject2/home.html";
+        }
+    </script>
+</body>
+</html>
